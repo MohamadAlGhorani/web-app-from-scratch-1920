@@ -1,6 +1,4 @@
-console.log("hello world!");
+import "../css/styles.css";
 import "babel-polyfill";
-
-import {
-    clean
-} from "./cleaning.js";
+import { clean } from "./cleaning.js";
+console.log("hello world!");
