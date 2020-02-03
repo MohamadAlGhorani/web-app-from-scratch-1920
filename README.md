@@ -7,12 +7,17 @@ screenshot here
 bla bla
 
 ## Installiation
+These instructions will get you a copy of the project up and running on your local machine.
+* If you dont have node js on your device download it first from [here](https://nodejs.org/en/).
+* Download the project.
+* Open the terminal and navigate to the project folder and run ```npm install``` to install the node modules. 
+* Run in your terminal ``` npm start ``` to open the project in your favorite browser localhost:1234.
 
 ## Features
 
-## Data
+## [Data](https://github.com/Nexure/DBD-API)
 
-## Licens is [MIT]()
+## Licens is [MIT](https://github.com/MohamadAlGhorani/web-app-from-scratch-1920/blob/master/LICENSE)
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
