@@ -8204,7 +8204,50 @@ function runApi(url) {
     console.log(error);
   });
 }
-},{}],"js/cleaning.js":[function(require,module,exports) {
+},{}],"js/renderData.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.renderData = renderData;
+
+var _cleaning = require("./cleaning.js");
+
+function renderData(data) {
+  console.log(data);
+  var survivorsSection = document.querySelector(".survivors");
+  var killersSection = document.querySelector(".killers");
+  data.map(function (item) {
+    if (item.role == "EPlayerRole::VE_Camper") {
+      var article = document.createElement("article");
+      var naam = document.createElement('h3');
+      naam.innerText = item.displayName;
+      var picture = document.createElement("img");
+      picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+      article.appendChild(naam);
+      article.appendChild(picture);
+      survivorsSection.appendChild(article);
+    } else {
+      var _article = document.createElement("article");
+
+      var _naam = document.createElement('h3');
+
+      _naam.innerText = item.displayName;
+
+      var _picture = document.createElement("img");
+
+      _picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+
+      _article.appendChild(_naam);
+
+      _article.appendChild(_picture);
+
+      killersSection.appendChild(_article);
+    }
+  });
+}
+},{"./cleaning.js":"js/cleaning.js"}],"js/cleaning.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8214,15 +8257,21 @@ exports.clean = clean;
 
 var _runApi = require("./runApi.js");
 
+var _renderData = require("./renderData.js");
+
 var api = "https://cors-anywhere.herokuapp.com/https://dbd-stats.info/api/characters";
 (0, _runApi.runApi)(api).then(function (data) {
   return clean(data);
 });
 
 function clean(data) {
-  console.log("DATA", data);
+  var dataArray = Object.values(data);
+  dataArray = dataArray.filter(function (item) {
+    return item.idName !== "None";
+  });
+  return (0, _renderData.renderData)(dataArray);
 }
-},{"./runApi.js":"js/runApi.js"}],"js/index.js":[function(require,module,exports) {
+},{"./runApi.js":"js/runApi.js","./renderData.js":"js/renderData.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../css/styles.css");
