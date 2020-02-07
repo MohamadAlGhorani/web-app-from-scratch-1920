@@ -8,9 +8,9 @@ import {
 const api =
   "https://cors-anywhere.herokuapp.com/https://dbd-stats.info/api/characters";
 
-runApi(api).then(data => clean(data));
+runApi(api).then(data => cleanData(data));
 
-function clean(data) {
+function cleanData(data) {
   let dataArray = Object.values(data)
   dataArray = dataArray.filter(item => {
     return item.idName !== "None"
@@ -19,5 +19,5 @@ function clean(data) {
 }
 
 export {
-  clean
+  cleanData
 };

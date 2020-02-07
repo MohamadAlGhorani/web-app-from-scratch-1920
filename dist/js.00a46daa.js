@@ -8219,31 +8219,18 @@ function renderData(data) {
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
   data.map(function (item) {
+    var article = document.createElement("article");
+    var naam = document.createElement('h3');
+    naam.innerText = item.displayName;
+    var picture = document.createElement("img");
+    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+    article.appendChild(naam);
+    article.appendChild(picture);
+
     if (item.role == "EPlayerRole::VE_Camper") {
-      var article = document.createElement("article");
-      var naam = document.createElement('h3');
-      naam.innerText = item.displayName;
-      var picture = document.createElement("img");
-      picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
-      article.appendChild(naam);
-      article.appendChild(picture);
       survivorsSection.appendChild(article);
     } else {
-      var _article = document.createElement("article");
-
-      var _naam = document.createElement('h3');
-
-      _naam.innerText = item.displayName;
-
-      var _picture = document.createElement("img");
-
-      _picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
-
-      _article.appendChild(_naam);
-
-      _article.appendChild(_picture);
-
-      killersSection.appendChild(_article);
+      killersSection.appendChild(article);
     }
   });
 }
@@ -8253,7 +8240,7 @@ function renderData(data) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.clean = clean;
+exports.cleanData = cleanData;
 
 var _runApi = require("./runApi.js");
 
@@ -8261,10 +8248,10 @@ var _renderData = require("./renderData.js");
 
 var api = "https://cors-anywhere.herokuapp.com/https://dbd-stats.info/api/characters";
 (0, _runApi.runApi)(api).then(function (data) {
-  return clean(data);
+  return cleanData(data);
 });
 
-function clean(data) {
+function cleanData(data) {
   var dataArray = Object.values(data);
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None";
