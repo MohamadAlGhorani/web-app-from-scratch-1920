@@ -6,7 +6,7 @@ import {
 } from "./renderData.js";
 
 const api =
-  "https://cors-anywhere.herokuapp.com/https://dbd-stats.info/api/characters";
+  "https://dbd-stats.info/api/characters";
 
 runApi(api).then(data => cleanData(data));
 

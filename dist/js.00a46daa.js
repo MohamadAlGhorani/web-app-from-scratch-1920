@@ -8224,6 +8224,29 @@ function renderData(data) {
     naam.innerText = item.displayName;
     var picture = document.createElement("img");
     picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+    picture.addEventListener("click", function getChracterInfo() {
+      var allArticle = document.querySelectorAll("article");
+      var articleArray = Array.from(allArticle);
+      articleArray.map(function (item) {
+        item.classList.remove("full-width");
+      });
+      article.classList.add("full-width");
+      console.log("Name:", item.idName);
+      var info = document.createElement("div");
+      var storyTitle = document.createElement('h4');
+      storyTitle.innerText = "Back story";
+      var story = document.createElement('p');
+      story.innerHTML = item.backStory;
+      var biographyTitle = document.createElement('h4');
+      biographyTitle.innerText = "Abilities";
+      var biography = document.createElement('p');
+      biography.innerHTML = item.biography;
+      info.appendChild(storyTitle);
+      info.appendChild(story);
+      info.appendChild(biographyTitle);
+      info.appendChild(biography);
+      article.appendChild(info);
+    });
     article.appendChild(naam);
     article.appendChild(picture);
 
@@ -8246,7 +8269,7 @@ var _runApi = require("./runApi.js");
 
 var _renderData = require("./renderData.js");
 
-var api = "https://cors-anywhere.herokuapp.com/https://dbd-stats.info/api/characters";
+var api = "https://dbd-stats.info/api/characters";
 (0, _runApi.runApi)(api).then(function (data) {
   return cleanData(data);
 });
@@ -8266,8 +8289,6 @@ require("../css/styles.css");
 require("babel-polyfill");
 
 var _cleaning = require("./cleaning.js");
-
-console.log("hello world!");
 },{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./cleaning.js":"js/cleaning.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -8296,7 +8317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62913" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59060" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

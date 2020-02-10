@@ -1,7 +1,31 @@
-h1 {
+h2 {
   color: white;
   background-color: black;
 }
 
+.survivors,
+.killers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.survivors article,
+.killers article {
+  width: 250px;
+}
+
+article.full-width {
+  width: 100%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+article.full-width div {
+  display: block;
+}
+
+article div {
+  display: none;
+}
 
 /*# sourceMappingURL=/js.00a46daa.css.map */
