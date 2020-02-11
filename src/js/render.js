@@ -11,8 +11,13 @@ function renderData(data) {
         picture.addEventListener("click", function getChracterInfo() {
             let allArticle = document.querySelectorAll("article");
             let articleArray = Array.from(allArticle);
+            let allDiv = document.querySelectorAll("article div")
+            let divArray = Array.from(allDiv);
             articleArray.map(item => {
                 item.classList.remove("full-width");
+            })
+            divArray.map(item => {
+                item.remove();
             })
             article.classList.add("full-width");
             console.log("Name:", item.idName);

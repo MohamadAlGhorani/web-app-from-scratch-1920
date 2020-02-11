@@ -8208,8 +8208,13 @@ function renderData(data) {
     picture.addEventListener("click", function getChracterInfo() {
       var allArticle = document.querySelectorAll("article");
       var articleArray = Array.from(allArticle);
+      var allDiv = document.querySelectorAll("article div");
+      var divArray = Array.from(allDiv);
       articleArray.map(function (item) {
         item.classList.remove("full-width");
+      });
+      divArray.map(function (item) {
+        item.remove();
       });
       article.classList.add("full-width");
       console.log("Name:", item.idName);
