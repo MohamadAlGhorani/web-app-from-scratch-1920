@@ -1,12 +1,8 @@
-import {
-    cleanData
-} from "./cleaning.js";
-
 function renderData(data) {
     console.log(data)
     let survivorsSection = document.querySelector(".survivors");
     let killersSection = document.querySelector(".killers");
-    data.map(item => {
+    return data.map(item => {
         let article = document.createElement("article");
         let naam = document.createElement('h3');
         naam.innerText = item.displayName;

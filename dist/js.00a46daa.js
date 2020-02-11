@@ -8187,24 +8187,7 @@ define(String.prototype, "padRight", "".padEnd);
 "pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function (key) {
   [][key] && define(Array, key, Function.call.bind([][key]));
 });
-},{"core-js/shim":"../node_modules/core-js/shim.js","regenerator-runtime/runtime":"../node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js","core-js/fn/regexp/escape":"../node_modules/core-js/fn/regexp/escape.js"}],"js/runApi.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.runApi = runApi;
-
-function runApi(url) {
-  return fetch(url).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    return data;
-  }).catch(function (error) {
-    console.log(error);
-  });
-}
-},{}],"js/renderData.js":[function(require,module,exports) {
+},{"core-js/shim":"../node_modules/core-js/shim.js","regenerator-runtime/runtime":"../node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js","core-js/fn/regexp/escape":"../node_modules/core-js/fn/regexp/escape.js"}],"js/render.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8212,13 +8195,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.renderData = renderData;
 
-var _cleaning = require("./cleaning.js");
-
 function renderData(data) {
   console.log(data);
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
-  data.map(function (item) {
+  return data.map(function (item) {
     var article = document.createElement("article");
     var naam = document.createElement('h3');
     naam.innerText = item.displayName;
@@ -8257,7 +8238,7 @@ function renderData(data) {
     }
   });
 }
-},{"./cleaning.js":"js/cleaning.js"}],"js/cleaning.js":[function(require,module,exports) {
+},{}],"js/data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8265,31 +8246,46 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.cleanData = cleanData;
 
-var _runApi = require("./runApi.js");
-
-var _renderData = require("./renderData.js");
-
-var api = "https://dbd-stats.info/api/characters";
-(0, _runApi.runApi)(api).then(function (data) {
-  return cleanData(data);
-});
+var _render = require("./render.js");
 
 function cleanData(data) {
   var dataArray = Object.values(data);
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None";
   });
-  return (0, _renderData.renderData)(dataArray);
+  return (0, _render.renderData)(dataArray);
 }
-},{"./runApi.js":"js/runApi.js","./renderData.js":"js/renderData.js"}],"js/index.js":[function(require,module,exports) {
+},{"./render.js":"js/render.js"}],"js/api.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.runApi = runApi;
+
+var _data = require("./data.js");
+
+function runApi() {
+  var url = "https://dbd-stats.info/api/characters";
+  return fetch(url).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return (0, _data.cleanData)(data);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
+},{"./data.js":"js/data.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../css/styles.css");
 
 require("babel-polyfill");
 
-var _cleaning = require("./cleaning.js");
-},{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./cleaning.js":"js/cleaning.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _api = require("./api");
+
+(0, _api.runApi)();
+},{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./api":"js/api.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -8317,7 +8313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59060" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60837" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
