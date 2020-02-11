@@ -1,22 +1,27 @@
 # Dead by daylight
+
 screenshot here
 
 ## [Live demo](https://mohamadalghorani.github.io/web-app-from-scratch-1920/dist/index.html)
 
-## Description 
-bla bla
+## Description
+
+Its a web app for all characters of Dead by Daylight game. with this app can you learn about each character and read their back story.
 
 ## Installiation
+
 These instructions will get you a copy of the project up and running on your local machine.
-* If you dont have node js on your device download it first from [here](https://nodejs.org/en/).
-* Download the project.
-* Open the terminal and navigate to the project folder and run ```npm install``` to install the node modules. 
-* Run in your terminal ``` npm start ``` to open the project in your favorite browser localhost:1234.
+
+- If you dont have node js on your device download it first from [here](https://nodejs.org/en/).
+- Download the project.
+- Open the terminal and navigate to the project folder and run `npm install` to install the node modules.
+- Run in your terminal `npm start` to open the project in your favorite browser localhost:1234.
 
 ## Features
 
 ## [Data](https://github.com/Nexure/DBD-API)
-In this data source 
+
+I used the data from the game and i used the endpoint characters.
 
 ## Licens is [MIT](https://github.com/MohamadAlGhorani/web-app-from-scratch-1920/blob/master/LICENSE)
 
