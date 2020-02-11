@@ -28,4 +28,13 @@ article div {
   display: none;
 }
 
+header img {
+  height: 75px;
+  margin-left: 10px;
+}
+
+header {
+  display: flex;
+}
+
 /*# sourceMappingURL=/js.00a46daa.css.map */
