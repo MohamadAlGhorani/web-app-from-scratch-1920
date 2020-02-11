@@ -4,10 +4,10 @@ function renderData(data) {
     let killersSection = document.querySelector(".killers");
     return data.map(item => {
         let article = document.createElement("article");
-        let naam = document.createElement('h3');
+        let naam = document.createElement("h3");
         naam.innerText = item.displayName;
         let picture = document.createElement("img");
-        picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+        picture.src = `https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/${item.idName}.png`;
         picture.addEventListener("click", function getChracterInfo() {
             let allArticle = document.querySelectorAll("article");
             let articleArray = Array.from(allArticle);
@@ -19,11 +19,11 @@ function renderData(data) {
             let info = document.createElement("div");
             let storyTitle = document.createElement('h4');
             storyTitle.innerText = "Back story";
-            let story = document.createElement('p');
+            let story = document.createElement("p");
             story.innerHTML = item.backStory;
-            let biographyTitle = document.createElement('h4');
+            let biographyTitle = document.createElement("h4");
             biographyTitle.innerText = "Abilities";
-            let biography = document.createElement('p');
+            let biography = document.createElement("p");
             biography.innerHTML = item.biography;
             info.appendChild(storyTitle);
             info.appendChild(story);

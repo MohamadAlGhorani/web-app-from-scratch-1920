@@ -4,4 +4,4 @@ import {
     runApi
 } from "./api";
 
-runApi()
+runApi();

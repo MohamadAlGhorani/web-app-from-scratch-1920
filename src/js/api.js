@@ -3,7 +3,7 @@ import {
 } from "./data.js";
 
 function runApi() {
-  const url = "https://dbd-stats.info/api/characters"
+  const url = "https://dbd-stats.info/api/characters";
   return fetch(url)
     .then(res => res.json())
     .then(data => cleanData(data))

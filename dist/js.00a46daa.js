@@ -8201,10 +8201,10 @@ function renderData(data) {
   var killersSection = document.querySelector(".killers");
   return data.map(function (item) {
     var article = document.createElement("article");
-    var naam = document.createElement('h3');
+    var naam = document.createElement("h3");
     naam.innerText = item.displayName;
     var picture = document.createElement("img");
-    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/" + item.idName + ".png";
+    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
     picture.addEventListener("click", function getChracterInfo() {
       var allArticle = document.querySelectorAll("article");
       var articleArray = Array.from(allArticle);
@@ -8216,11 +8216,11 @@ function renderData(data) {
       var info = document.createElement("div");
       var storyTitle = document.createElement('h4');
       storyTitle.innerText = "Back story";
-      var story = document.createElement('p');
+      var story = document.createElement("p");
       story.innerHTML = item.backStory;
-      var biographyTitle = document.createElement('h4');
+      var biographyTitle = document.createElement("h4");
       biographyTitle.innerText = "Abilities";
-      var biography = document.createElement('p');
+      var biography = document.createElement("p");
       biography.innerHTML = item.biography;
       info.appendChild(storyTitle);
       info.appendChild(story);
