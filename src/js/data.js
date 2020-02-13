@@ -9,7 +9,6 @@ function cleanData(data) {
   })
   return renderData(dataArray);
 }
-
 export {
   cleanData
 };

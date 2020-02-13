@@ -21,6 +21,7 @@ function renderData(data) {
             })
             article.classList.add("full-width");
             console.log("Name:", item.idName);
+            console.log(item.difficulty)
             let info = document.createElement("div");
             let storyTitle = document.createElement('h4');
             storyTitle.innerText = "Back story";

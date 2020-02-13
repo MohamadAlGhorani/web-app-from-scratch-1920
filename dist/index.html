@@ -4,26 +4,53 @@
         <title>Dead by Daylight</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="js.00a46daa.css"></head>
+    <link rel="stylesheet" href="/js.00a46daa.css"></head>
     <body>
         <header>
             <h1>Dead by Daylight Syria</h1>
-            <img src="DBD.54de424d.png" alt="">
+            <img src="/DBD.54de424d.png" alt="">
         </header>
         <main>
-            <section>
-                <h2>Survivors</h2>
-                <div class="survivors"></div>
-            </section>
-            <section>
-                <h2>Killers</h2>
-                <div class="killers"></div>
-            </section>
+            <div class="home" data-route="home">
+                <form class="difficulty-form">
+                    <fieldset>
+                        <legend>difficulty</legend>
+                        <label for="easy">Easy</label>
+                        <input id="easy" type="radio" value="ECharacterDifficulty::VE_Easy" name="difficulty">
+                        <label for="hard">Hard</label>
+                        <input id="hard" type="radio" value="ECharacterDifficulty::VE_Hard" name="difficulty">
+                        <label for="intermediate">Intermediate</label>
+                        <input id="intermediate" type="radio" value="ECharacterDifficulty::VE_Intermediate" name="difficulty">
+                        <label for="allDifficulty">All</label>
+                        <input id="allDifficulty" checked="" type="radio" value="allDifficulty" name="difficulty">
+                    </fieldset>
+                </form>
+                <form class="gender-form">
+                    <fieldset>
+                        <legend>Gender</legend>
+                        <label for="male">Male</label>
+                        <input id="male" type="radio" value="EGender::VE_Male" name="gender">
+                        <label for="female">Female</label>
+                        <input id="female" type="radio" value="EGender::VE_Female" name="gender">
+                        <label for="all">All</label>
+                        <input id="all" checked="" type="radio" value="all" name="gender">
+                    </fieldset>
+                </form>
+                <section>
+                    <h2>Survivors</h2>
+                    <div class="survivors"></div>
+                </section>
+                <section>
+                    <h2>Killers</h2>
+                    <div class="killers"></div>
+                </section>
+            </div>
+            <div class="details" data-route="details"></div>
         </main>
         <footer>
             <a href="https://www.facebook.com/pg/DBDsyria" target="blank">Facebook</a>
             <a href="https://www.youtube.com/channel/UChPEA3-R3nzorCxbt0uX_Uw?view_as=subscriber" target="blank">Youtube</a>
         </footer>
-        <script src="js.00a46daa.js"></script>
+        <script src="/js.00a46daa.js"></script>
     </body>
 </html>

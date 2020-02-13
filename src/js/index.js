@@ -1,7 +1,11 @@
 import "../css/styles.css";
 import "babel-polyfill";
 import {
+    router
+} from "./routie"
+import {
     runApi
-} from "./api";
+} from "./api"
 
-runApi();
+runApi()
+router.init()
