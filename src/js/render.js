@@ -1,11 +1,11 @@
 function renderData(data) {
-    console.log(data)
+    //console.log(data)
     let survivorsSection = document.querySelector(".survivors");
     let killersSection = document.querySelector(".killers");
     survivorsSection.innerHTML = '';
     killersSection.innerHTML = '';
     return data.map(item => {
-        const link = document.createElement("a")
+        const link = document.createElement("a");
         link.href = `#details/${item.idName}`;
         let article = document.createElement("article");
         let name = document.createElement("h3");
@@ -25,11 +25,11 @@ function renderData(data) {
 }
 
 function detailData(data, id) {
-    const detailpage = document.querySelector(".details")
+    const detailpage = document.querySelector(".details");
     detailpage.innerHTML = '';
     let backLink = document.createElement("a");
     backLink.href = "#home";
-    let backbutton = document.createElement("button")
+    let backbutton = document.createElement("button");
     backbutton.innerText = "back"
     let dataArray = Object.values(data);
 

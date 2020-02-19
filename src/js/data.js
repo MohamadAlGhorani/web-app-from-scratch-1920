@@ -13,10 +13,8 @@ function cleanData(data) {
     return item.idName !== "None";
   });
 
-  filterDataByDifficulty(dataArray)
-  filterDataByGender(dataArray)
-
-  // renderData(dataArray)
+  filterDataByDifficulty(dataArray);
+  filterDataByGender(dataArray);
 
 }
 export {

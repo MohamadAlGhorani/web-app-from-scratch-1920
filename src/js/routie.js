@@ -2,6 +2,9 @@ import {
     getCharacterInfo,
     runApi
 } from "./api";
+import {
+    updateUI
+} from "./userInterface"
 
 const router = {
     init: function () {
@@ -190,23 +193,20 @@ const router = {
         Routie(window);
         routie({
             'home': function () {
-                console.log("home")
                 runApi();
+                updateUI('home');
                 (function filtering() {
                     const forms = document.querySelectorAll("form");
                     forms.forEach(item => {
                         item.addEventListener("change", () => {
-                            console.log("changing")
-                            runApi()
+                            runApi();
                         })
                     })
                 })()
             },
-        });
-        routie({
             'details/:id': function (id) {
-                console.log("details")
-                getCharacterInfo(id)
+                getCharacterInfo(id);
+                updateUI('details');
             },
         });
     }

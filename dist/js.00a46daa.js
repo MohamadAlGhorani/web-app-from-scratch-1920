@@ -8197,7 +8197,7 @@ exports.renderData = renderData;
 exports.detailData = detailData;
 
 function renderData(data) {
-  console.log(data);
+  //console.log(data)
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
   survivorsSection.innerHTML = '';
@@ -8353,7 +8353,7 @@ function cleanData(data) {
     return item.idName !== "None";
   });
   (0, _filter.filterDataByDifficulty)(dataArray);
-  (0, _filter.filterDataByGender)(dataArray); // renderData(dataArray)
+  (0, _filter.filterDataByGender)(dataArray);
 }
 },{"./render.js":"js/render.js","./filter.js":"js/filter.js"}],"js/api.js":[function(require,module,exports) {
 "use strict";
@@ -8389,7 +8389,24 @@ function getCharacterInfo(id) {
     console.log(error);
   });
 }
-},{"./data.js":"js/data.js","./render.js":"js/render.js"}],"js/routie.js":[function(require,module,exports) {
+},{"./data.js":"js/data.js","./render.js":"js/render.js"}],"js/userInterface.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.updateUI = updateUI;
+
+function updateUI(route) {
+  var pages = document.querySelectorAll('body main > div');
+  pages.forEach(function (page) {
+    page.classList.remove('active');
+  });
+  var activePage = document.querySelector("[data-route=".concat(route, "]"));
+  console.log(activePage);
+  activePage.classList.add('active');
+}
+},{}],"js/routie.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8398,6 +8415,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.router = void 0;
 
 var _api = require("./api");
+
+var _userInterface = require("./userInterface");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -8622,30 +8641,27 @@ var router = {
     Routie(window);
     routie({
       'home': function home() {
-        console.log("home");
         (0, _api.runApi)();
+        (0, _userInterface.updateUI)('home');
 
         (function filtering() {
           var forms = document.querySelectorAll("form");
           forms.forEach(function (item) {
             item.addEventListener("change", function () {
-              console.log("changing");
               (0, _api.runApi)();
             });
           });
         })();
-      }
-    });
-    routie({
+      },
       'details/:id': function detailsId(id) {
-        console.log("details");
         (0, _api.getCharacterInfo)(id);
+        (0, _userInterface.updateUI)('details');
       }
     });
   }
 };
 exports.router = router;
-},{"./api":"js/api.js"}],"js/index.js":[function(require,module,exports) {
+},{"./api":"js/api.js","./userInterface":"js/userInterface.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../css/styles.css");

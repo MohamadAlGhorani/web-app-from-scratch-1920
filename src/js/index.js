@@ -4,4 +4,4 @@ import {
     router
 } from "./routie"
 
-router.init()
+router.init();

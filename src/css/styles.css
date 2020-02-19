@@ -36,6 +36,7 @@ header {
   padding-top: 10px;
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
+  z-index: 9999999;
 }
 
 header img {
@@ -50,4 +51,31 @@ header img:hover {
 
 main {
   margin-top: 100px;
+  position: relative;
+}
+
+body main>div {
+  opacity: 0;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  transition: 0.25s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+body main>div.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding: 1rem;
 }
