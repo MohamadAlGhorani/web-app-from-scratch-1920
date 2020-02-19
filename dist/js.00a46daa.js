@@ -8269,8 +8269,8 @@ exports.filterDataByGender = filterDataByGender;
 var _render = require("./render.js");
 
 function filterDataByGender(data) {
-  var form = document.querySelector('.gender-form'); // form.addEventListener('change', (event) => {
-
+  // const form = document.querySelector('.gender-form')
+  // form.addEventListener('change', (event) => {
   var value = getActiveInputValueFromForm('.gender-form');
   var difficultyFormValue = getActiveInputValueFromForm('.difficulty-form');
 
@@ -8299,8 +8299,8 @@ function filterDataByGender(data) {
 }
 
 function filterDataByDifficulty(data) {
-  var form = document.querySelector('.difficulty-form'); // form.addEventListener('change', (event) => {
-
+  // const form = document.querySelector('.difficulty-form')
+  // form.addEventListener('change', (event) => {
   var value = getActiveInputValueFromForm('.difficulty-form');
   var genderFormValue = getActiveInputValueFromForm('.gender-form');
 

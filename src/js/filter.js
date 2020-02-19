@@ -3,7 +3,7 @@ import {
 } from "./render.js"
 
 function filterDataByGender(data) {
-    const form = document.querySelector('.gender-form')
+    // const form = document.querySelector('.gender-form')
 
     // form.addEventListener('change', (event) => {
     const value = getActiveInputValueFromForm('.gender-form')
@@ -40,7 +40,7 @@ function filterDataByGender(data) {
 }
 
 function filterDataByDifficulty(data) {
-    const form = document.querySelector('.difficulty-form')
+    // const form = document.querySelector('.difficulty-form')
 
     // form.addEventListener('change', (event) => {
     const value = getActiveInputValueFromForm('.difficulty-form')
