@@ -17,6 +17,15 @@ These instructions will get you a copy of the project up and running on your loc
 - Open the terminal and navigate to the project folder and run `npm install` to install the node modules.
 - Run in your terminal `npm start` to open the project in your favorite browser localhost:1234.
 
+## Actor diagram
+
+<img width="588" alt="Screenshot 2020-02-13 at 18 24 18" src="https://user-images.githubusercontent.com/45425087/74461445-d428fd00-4e8e-11ea-8d05-dc1aa20c4431.png">
+
+## Active diagram
+
+<img width="611" alt="Screenshot 2020-02-13 at 18 24 09" src="https://user-images.githubusercontent.com/45425087/74461462-dab77480-4e8e-11ea-9d63-657dc7feca33.png">
+
+
 ## Features
 
 ## [Data](https://github.com/Nexure/DBD-API)
