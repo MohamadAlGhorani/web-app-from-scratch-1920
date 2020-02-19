@@ -192,6 +192,15 @@ const router = {
             'home': function () {
                 console.log("home")
                 runApi();
+                (function filtering() {
+                    const forms = document.querySelectorAll("form");
+                    forms.forEach(item => {
+                        item.addEventListener("change", () => {
+                            console.log("changing")
+                            runApi()
+                        })
+                    })
+                })()
             },
         });
         routie({

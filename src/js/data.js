@@ -11,11 +11,12 @@ function cleanData(data) {
 
   dataArray = dataArray.filter(item => {
     return item.idName !== "None";
-  })
-  renderData(dataArray)
+  });
 
   filterDataByDifficulty(dataArray)
   filterDataByGender(dataArray)
+
+  // renderData(dataArray)
 
 }
 export {

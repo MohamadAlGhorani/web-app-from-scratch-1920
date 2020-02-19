@@ -8269,63 +8269,63 @@ exports.filterDataByGender = filterDataByGender;
 var _render = require("./render.js");
 
 function filterDataByGender(data) {
-  var form = document.querySelector('.gender-form');
-  form.addEventListener('change', function (event) {
-    var value = event.target.value;
-    var difficultyFormValue = getActiveInputValueFromForm('.difficulty-form');
+  var form = document.querySelector('.gender-form'); // form.addEventListener('change', (event) => {
 
-    if (difficultyFormValue == 'all') {
-      if (value == 'all') {
-        return (0, _render.renderData)(data);
-      } else {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.gender === value;
-        }));
-      }
+  var value = getActiveInputValueFromForm('.gender-form');
+  var difficultyFormValue = getActiveInputValueFromForm('.difficulty-form');
+
+  if (difficultyFormValue == 'all') {
+    if (value == 'all') {
+      return (0, _render.renderData)(data);
     } else {
-      if (value == 'all') {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.difficulty === difficultyFormValue;
-        }));
-      } else {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.gender === value;
-        }).filter(function (item) {
-          return item.difficulty === difficultyFormValue;
-        }));
-      }
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.gender === value;
+      }));
     }
-  });
+  } else {
+    if (value == 'all') {
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.difficulty === difficultyFormValue;
+      }));
+    } else {
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.gender === value;
+      }).filter(function (item) {
+        return item.difficulty === difficultyFormValue;
+      }));
+    }
+  } // })
+
 }
 
 function filterDataByDifficulty(data) {
-  var form = document.querySelector('.difficulty-form');
-  form.addEventListener('change', function (event) {
-    var value = event.target.value;
-    var genderFormValue = getActiveInputValueFromForm('.gender-form');
+  var form = document.querySelector('.difficulty-form'); // form.addEventListener('change', (event) => {
 
-    if (genderFormValue == 'all') {
-      if (value == 'all') {
-        return (0, _render.renderData)(data);
-      } else {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.difficulty === value;
-        }));
-      }
+  var value = getActiveInputValueFromForm('.difficulty-form');
+  var genderFormValue = getActiveInputValueFromForm('.gender-form');
+
+  if (genderFormValue == 'all') {
+    if (value == 'all') {
+      return (0, _render.renderData)(data);
     } else {
-      if (value == 'all') {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.gender === genderFormValue;
-        }));
-      } else {
-        return (0, _render.renderData)(data.filter(function (item) {
-          return item.difficulty === value;
-        }).filter(function (item) {
-          return item.gender === genderFormValue;
-        }));
-      }
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.difficulty === value;
+      }));
     }
-  });
+  } else {
+    if (value == 'all') {
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.gender === genderFormValue;
+      }));
+    } else {
+      return (0, _render.renderData)(data.filter(function (item) {
+        return item.difficulty === value;
+      }).filter(function (item) {
+        return item.gender === genderFormValue;
+      }));
+    }
+  } // })
+
 }
 
 function getActiveInputValueFromForm(formSelector) {
@@ -8352,9 +8352,8 @@ function cleanData(data) {
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None";
   });
-  (0, _render.renderData)(dataArray);
   (0, _filter.filterDataByDifficulty)(dataArray);
-  (0, _filter.filterDataByGender)(dataArray);
+  (0, _filter.filterDataByGender)(dataArray); // renderData(dataArray)
 }
 },{"./render.js":"js/render.js","./filter.js":"js/filter.js"}],"js/api.js":[function(require,module,exports) {
 "use strict";
@@ -8625,6 +8624,16 @@ var router = {
       'home': function home() {
         console.log("home");
         (0, _api.runApi)();
+
+        (function filtering() {
+          var forms = document.querySelectorAll("form");
+          forms.forEach(function (item) {
+            item.addEventListener("change", function () {
+              console.log("changing");
+              (0, _api.runApi)();
+            });
+          });
+        })();
       }
     });
     routie({
