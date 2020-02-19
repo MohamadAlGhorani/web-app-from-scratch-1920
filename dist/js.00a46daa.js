@@ -8398,13 +8398,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.updateUI = updateUI;
 
 function updateUI(route) {
-  var pages = document.querySelectorAll('body main > div');
-  pages.forEach(function (page) {
-    page.classList.remove('active');
+  var sections = document.querySelectorAll("main > section");
+  sections.forEach(function (section) {
+    section.classList.remove('active');
   });
-  var activePage = document.querySelector("[data-route=".concat(route, "]"));
-  console.log(activePage);
-  activePage.classList.add('active');
+  var activeSection = document.querySelector("[data-route=".concat(route, "]"));
+  console.log(activeSection);
+  activeSection.classList.add('active');
 }
 },{}],"js/routie.js":[function(require,module,exports) {
 "use strict";

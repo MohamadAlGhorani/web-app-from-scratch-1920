@@ -54,7 +54,7 @@ main {
   position: relative;
 }
 
-body main>div {
+body main>section {
   opacity: 0;
   padding: 1rem;
   padding-bottom: 3rem;
@@ -65,7 +65,7 @@ body main>div {
   z-index: 1;
 }
 
-body main>div.active {
+body main>section.active {
   opacity: 1;
   z-index: 2;
 }
