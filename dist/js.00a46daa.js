@@ -8187,13 +8187,221 @@ define(String.prototype, "padRight", "".padEnd);
 "pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function (key) {
   [][key] && define(Array, key, Function.call.bind([][key]));
 });
-},{"core-js/shim":"../node_modules/core-js/shim.js","regenerator-runtime/runtime":"../node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js","core-js/fn/regexp/escape":"../node_modules/core-js/fn/regexp/escape.js"}],"js/routie.js":[function(require,module,exports) {
+},{"core-js/shim":"../node_modules/core-js/shim.js","regenerator-runtime/runtime":"../node_modules/babel-polyfill/node_modules/regenerator-runtime/runtime.js","core-js/fn/regexp/escape":"../node_modules/core-js/fn/regexp/escape.js"}],"js/render.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.renderData = renderData;
+exports.detailData = detailData;
+
+function renderData(data) {
+  console.log(data);
+  var survivorsSection = document.querySelector(".survivors");
+  var killersSection = document.querySelector(".killers");
+  return data.map(function (item) {
+    var link = document.createElement("a");
+    link.href = "#details/".concat(item.idName);
+    var article = document.createElement("article");
+    var name = document.createElement("h3");
+    name.innerText = item.displayName;
+    var picture = document.createElement("img");
+    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
+    article.appendChild(name);
+    article.appendChild(picture);
+    link.appendChild(article);
+
+    if (item.role == "EPlayerRole::VE_Camper") {
+      survivorsSection.appendChild(link);
+    } else {
+      killersSection.appendChild(link);
+    }
+  });
+}
+
+function detailData(data, id) {
+  var detailpage = document.querySelector(".details");
+  detailpage.innerHTML = '';
+  var backLink = document.createElement("a");
+  backLink.href = "#home";
+  var backbutton = document.createElement("button");
+  backbutton.innerText = "back";
+  var dataArray = Object.values(data);
+  dataArray = dataArray.filter(function (item) {
+    return item.idName == id;
+  }).map(function (item) {
+    var name = document.createElement("h3");
+    name.innerText = item.displayName;
+    var picture = document.createElement("img");
+    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
+    var info = document.createElement("div");
+    var storyTitle = document.createElement('h4');
+    storyTitle.innerText = "Back story";
+    var story = document.createElement("p");
+    story.innerHTML = item.backStory;
+    var biographyTitle = document.createElement("h4");
+    biographyTitle.innerText = "Abilities";
+    var biography = document.createElement("p");
+    biography.innerHTML = item.biography;
+    backLink.appendChild(backbutton);
+    info.appendChild(backLink);
+    info.appendChild(name);
+    info.appendChild(picture);
+    info.appendChild(storyTitle);
+    info.appendChild(story);
+    info.appendChild(biographyTitle);
+    info.appendChild(biography);
+    detailpage.appendChild(info);
+  });
+}
+},{}],"js/filter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.filterDataByDifficulty = filterDataByDifficulty;
+exports.filterDataByGender = filterDataByGender;
+
+function filterDataByGender(data) {
+  var form = document.querySelector('.gender-form');
+  form.addEventListener('change', function (event) {
+    var value = event.target.value;
+    var difficultyFormValue = getActiveInputValueFromForm('.difficulty-form');
+
+    if (difficultyFormValue === 'all') {
+      if (value === 'all') {
+        return console.log(data);
+      } else {
+        return console.log(data.filter(function (item) {
+          return item.gender === value;
+        }));
+      }
+    } else {
+      if (value === 'all') {
+        return console.log(data.filter(function (item) {
+          return item.difficulty === difficultyFormValue;
+        }));
+      } else {
+        return console.log(data.filter(function (item) {
+          return item.gender === value;
+        }).filter(function (item) {
+          return item.difficulty === difficultyFormValue;
+        }));
+      }
+    }
+  });
+}
+
+function filterDataByDifficulty(data) {
+  var form = document.querySelector('.difficulty-form');
+  form.addEventListener('change', function (event) {
+    var value = event.target.value;
+    var genderFormValue = getActiveInputValueFromForm('.gender-form');
+
+    if (genderFormValue === 'all') {
+      if (value === 'all') {
+        return console.log(data);
+      } else {
+        return console.log(data.filter(function (item) {
+          return item.difficulty === value;
+        }));
+      }
+    } else {
+      if (value === 'all') {
+        return console.log(data.filter(function (item) {
+          return item.gender === genderFormValue;
+        }));
+      } else {
+        return console.log(data.filter(function (item) {
+          return item.difficulty === value;
+        }).filter(function (item) {
+          return item.gender === genderFormValue;
+        }));
+      }
+    }
+  });
+}
+
+function getActiveInputValueFromForm(formSelector) {
+  var inputs = document.querySelectorAll("".concat(formSelector, " input"));
+  var activeInput = Array.from(inputs).find(function (input) {
+    return input.checked;
+  });
+  return activeInput.value;
+}
+},{}],"js/data.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cleanData = cleanData;
+
+var _render = require("./render.js");
+
+var _filter = require("./filter.js");
+
+function cleanData(data) {
+  var dataArray = Object.values(data);
+  dataArray = dataArray.filter(function (item) {
+    return item.idName !== "None";
+  });
+  (0, _filter.filterDataByDifficulty)(dataArray);
+  (0, _filter.filterDataByGender)(dataArray);
+  (0, _render.renderData)(dataArray);
+  var forms = document.querySelectorAll("form");
+  forms.forEach(function (item) {
+    item.addEventListener("change", function () {
+      console.log("changing"); // update(dataArray)
+    });
+  });
+  return dataArray;
+}
+},{"./render.js":"js/render.js","./filter.js":"js/filter.js"}],"js/api.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.runApi = runApi;
+exports.getCharacterInfo = getCharacterInfo;
+
+var _data = require("./data.js");
+
+var _render = require("./render.js");
+
+var url = "https://dbd-stats.info/api/characters";
+
+function runApi() {
+  return fetch(url).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return (0, _data.cleanData)(data);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
+
+function getCharacterInfo(id) {
+  return fetch(url).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return (0, _render.detailData)(data, id);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
+},{"./data.js":"js/data.js","./render.js":"js/render.js"}],"js/routie.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.router = void 0;
+
+var _api = require("./api");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -8417,108 +8625,21 @@ var router = {
 
     Routie(window);
     routie({
-      'details': function details() {
+      'home': function home() {
+        console.log("home");
+        (0, _api.runApi)();
+      }
+    });
+    routie({
+      'details/:id': function detailsId(id) {
         console.log("details");
+        (0, _api.getCharacterInfo)(id);
       }
     });
   }
 };
 exports.router = router;
-},{}],"js/render.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.renderData = renderData;
-
-function renderData(data) {
-  console.log(data);
-  var survivorsSection = document.querySelector(".survivors");
-  var killersSection = document.querySelector(".killers");
-  return data.map(function (item) {
-    var article = document.createElement("article");
-    var naam = document.createElement("h3");
-    naam.innerText = item.displayName;
-    var picture = document.createElement("img");
-    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
-    picture.addEventListener("click", function getChracterInfo() {
-      var allArticle = document.querySelectorAll("article");
-      var articleArray = Array.from(allArticle);
-      var allDiv = document.querySelectorAll("article div");
-      var divArray = Array.from(allDiv);
-      articleArray.map(function (item) {
-        item.classList.remove("full-width");
-      });
-      divArray.map(function (item) {
-        item.remove();
-      });
-      article.classList.add("full-width");
-      console.log("Name:", item.idName);
-      console.log(item.difficulty);
-      var info = document.createElement("div");
-      var storyTitle = document.createElement('h4');
-      storyTitle.innerText = "Back story";
-      var story = document.createElement("p");
-      story.innerHTML = item.backStory;
-      var biographyTitle = document.createElement("h4");
-      biographyTitle.innerText = "Abilities";
-      var biography = document.createElement("p");
-      biography.innerHTML = item.biography;
-      info.appendChild(storyTitle);
-      info.appendChild(story);
-      info.appendChild(biographyTitle);
-      info.appendChild(biography);
-      article.appendChild(info);
-    });
-    article.appendChild(naam);
-    article.appendChild(picture);
-
-    if (item.role == "EPlayerRole::VE_Camper") {
-      survivorsSection.appendChild(article);
-    } else {
-      killersSection.appendChild(article);
-    }
-  });
-}
-},{}],"js/data.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.cleanData = cleanData;
-
-var _render = require("./render.js");
-
-function cleanData(data) {
-  var dataArray = Object.values(data);
-  dataArray = dataArray.filter(function (item) {
-    return item.idName !== "None";
-  });
-  return (0, _render.renderData)(dataArray);
-}
-},{"./render.js":"js/render.js"}],"js/api.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.runApi = runApi;
-
-var _data = require("./data.js");
-
-function runApi() {
-  var url = "https://dbd-stats.info/api/characters";
-  return fetch(url).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    return (0, _data.cleanData)(data);
-  }).catch(function (error) {
-    console.log(error);
-  });
-}
-},{"./data.js":"js/data.js"}],"js/index.js":[function(require,module,exports) {
+},{"./api":"js/api.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../css/styles.css");
@@ -8527,12 +8648,8 @@ require("babel-polyfill");
 
 var _routie = require("./routie");
 
-var _api = require("./api");
-
-(0, _api.runApi)();
-
 _routie.router.init();
-},{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./routie":"js/routie.js","./api":"js/api.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./routie":"js/routie.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -8560,7 +8677,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62962" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63720" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

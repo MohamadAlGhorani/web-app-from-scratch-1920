@@ -1,39 +1,96 @@
-function filter() {
-    const difficultyValue = document.querySelectorAll(".difficulty-form input")
-    for (var i = 0; i < difficultyValue.length; i++) {
-        if (difficultyValue[i].checked) {
-            if (difficultyValue[i].value == "ECharacterDifficulty::VE_Easy") {
-                console.log(1)
+function filterDataByGender(data) {
+    const form = document.querySelector('.gender-form')
 
-            } else if (difficultyValue[i].value == "ECharacterDifficulty::VE_Hard") {
-                console.log(2)
+    form.addEventListener('change', (event) => {
+        const {
+            value
+        } = event.target
+        const difficultyFormValue = getActiveInputValueFromForm('.difficulty-form')
 
-            } else if (difficultyValue[i].value == "ECharacterDifficulty::VE_Intermediate") {
-                console.log(3)
+        if (difficultyFormValue === 'all') {
 
-            } else if (difficultyValue[i].value == "allDifficulty") {
-                console.log(4)
-
+            if (value === 'all') {
+                return console.log(data)
+            } else {
+                return console.log(data.filter(item => {
+                    return item.gender === value
+                }))
             }
-        }
-    }
-    const genderValue = document.querySelectorAll(".gender-form input")
-    for (var i = 0; i < genderValue.length; i++) {
-        if (genderValue[i].checked) {
-            if (genderValue[i].value == "EGender::VE_Male") {
-                console.log(1)
 
-            } else if (genderValue[i].value == "EGender::VE_Female") {
-                console.log(2)
+        } else {
 
-            } else if (genderValue[i].value == "all") {
-                console.log(3)
-
+            if (value === 'all') {
+                return console.log(data.filter(item => {
+                    return item.difficulty === difficultyFormValue
+                }))
+            } else {
+                return console.log(
+                    data
+                    .filter(item => {
+                        return item.gender === value
+                    })
+                    .filter(item => {
+                        return item.difficulty === difficultyFormValue
+                    })
+                )
             }
+
         }
-    }
+    })
 }
-var inputs = document.querySelectorAll("input")
-Array.prototype.forEach.call(inputs, function (input) {
-    input.addEventListener('change', filter);
-});
+
+function filterDataByDifficulty(data) {
+    const form = document.querySelector('.difficulty-form')
+
+    form.addEventListener('change', (event) => {
+        const {
+            value
+        } = event.target
+        const genderFormValue = getActiveInputValueFromForm('.gender-form')
+
+        if (genderFormValue === 'all') {
+
+            if (value === 'all') {
+                return console.log(data)
+            } else {
+                return console.log(data.filter(item => {
+                    return item.difficulty === value
+                }))
+            }
+
+        } else {
+
+            if (value === 'all') {
+                return console.log(data.filter(item => {
+                    return item.gender === genderFormValue
+                }))
+            } else {
+                return console.log(
+                    data
+                    .filter(item => {
+                        return item.difficulty === value
+                    })
+                    .filter(item => {
+                        return item.gender === genderFormValue
+                    })
+                )
+            }
+
+        }
+    })
+}
+
+function getActiveInputValueFromForm(formSelector) {
+    const inputs = document.querySelectorAll(`${formSelector} input`);
+
+    const activeInput = Array.from(inputs).find(input => {
+        return input.checked
+    })
+
+    return activeInput.value
+}
+
+export {
+    filterDataByDifficulty,
+    filterDataByGender
+}

@@ -1,3 +1,8 @@
+import {
+    getCharacterInfo,
+    runApi
+} from "./api";
+
 const router = {
     init: function () {
         /*!
@@ -184,8 +189,15 @@ const router = {
         };
         Routie(window);
         routie({
-            'details': function () {
+            'home': function () {
+                console.log("home")
+                runApi()
+            },
+        });
+        routie({
+            'details/:id': function (id) {
                 console.log("details")
+                getCharacterInfo(id)
             },
         });
     }
