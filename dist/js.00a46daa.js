@@ -8200,6 +8200,8 @@ function renderData(data) {
   console.log(data);
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
+  survivorsSection.innerHTML = '';
+  killersSection.innerHTML = '';
   return data.map(function (item) {
     var link = document.createElement("a");
     link.href = "#details/".concat(item.idName);
@@ -8264,27 +8266,29 @@ Object.defineProperty(exports, "__esModule", {
 exports.filterDataByDifficulty = filterDataByDifficulty;
 exports.filterDataByGender = filterDataByGender;
 
+var _render = require("./render.js");
+
 function filterDataByGender(data) {
   var form = document.querySelector('.gender-form');
   form.addEventListener('change', function (event) {
     var value = event.target.value;
     var difficultyFormValue = getActiveInputValueFromForm('.difficulty-form');
 
-    if (difficultyFormValue === 'all') {
-      if (value === 'all') {
-        return console.log(data);
+    if (difficultyFormValue == 'all') {
+      if (value == 'all') {
+        return (0, _render.renderData)(data);
       } else {
-        return console.log(data.filter(function (item) {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.gender === value;
         }));
       }
     } else {
-      if (value === 'all') {
-        return console.log(data.filter(function (item) {
+      if (value == 'all') {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.difficulty === difficultyFormValue;
         }));
       } else {
-        return console.log(data.filter(function (item) {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.gender === value;
         }).filter(function (item) {
           return item.difficulty === difficultyFormValue;
@@ -8300,21 +8304,21 @@ function filterDataByDifficulty(data) {
     var value = event.target.value;
     var genderFormValue = getActiveInputValueFromForm('.gender-form');
 
-    if (genderFormValue === 'all') {
-      if (value === 'all') {
-        return console.log(data);
+    if (genderFormValue == 'all') {
+      if (value == 'all') {
+        return (0, _render.renderData)(data);
       } else {
-        return console.log(data.filter(function (item) {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.difficulty === value;
         }));
       }
     } else {
-      if (value === 'all') {
-        return console.log(data.filter(function (item) {
+      if (value == 'all') {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.gender === genderFormValue;
         }));
       } else {
-        return console.log(data.filter(function (item) {
+        return (0, _render.renderData)(data.filter(function (item) {
           return item.difficulty === value;
         }).filter(function (item) {
           return item.gender === genderFormValue;
@@ -8331,7 +8335,7 @@ function getActiveInputValueFromForm(formSelector) {
   });
   return activeInput.value;
 }
-},{}],"js/data.js":[function(require,module,exports) {
+},{"./render.js":"js/render.js"}],"js/data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8348,16 +8352,9 @@ function cleanData(data) {
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None";
   });
+  (0, _render.renderData)(dataArray);
   (0, _filter.filterDataByDifficulty)(dataArray);
   (0, _filter.filterDataByGender)(dataArray);
-  (0, _render.renderData)(dataArray);
-  var forms = document.querySelectorAll("form");
-  forms.forEach(function (item) {
-    item.addEventListener("change", function () {
-      console.log("changing"); // update(dataArray)
-    });
-  });
-  return dataArray;
 }
 },{"./render.js":"js/render.js","./filter.js":"js/filter.js"}],"js/api.js":[function(require,module,exports) {
 "use strict";

@@ -1,3 +1,7 @@
+import {
+    renderData
+} from "./render.js"
+
 function filterDataByGender(data) {
     const form = document.querySelector('.gender-form')
 
@@ -7,32 +11,30 @@ function filterDataByGender(data) {
         } = event.target
         const difficultyFormValue = getActiveInputValueFromForm('.difficulty-form')
 
-        if (difficultyFormValue === 'all') {
+        if (difficultyFormValue == 'all') {
 
-            if (value === 'all') {
-                return console.log(data)
+            if (value == 'all') {
+                return renderData(data)
             } else {
-                return console.log(data.filter(item => {
+                return renderData(data.filter(item => {
                     return item.gender === value
                 }))
             }
 
         } else {
 
-            if (value === 'all') {
-                return console.log(data.filter(item => {
+            if (value == 'all') {
+                return renderData(data.filter(item => {
                     return item.difficulty === difficultyFormValue
                 }))
             } else {
-                return console.log(
-                    data
+                return renderData(data
                     .filter(item => {
                         return item.gender === value
                     })
                     .filter(item => {
                         return item.difficulty === difficultyFormValue
-                    })
-                )
+                    }))
             }
 
         }
@@ -48,32 +50,30 @@ function filterDataByDifficulty(data) {
         } = event.target
         const genderFormValue = getActiveInputValueFromForm('.gender-form')
 
-        if (genderFormValue === 'all') {
+        if (genderFormValue == 'all') {
 
-            if (value === 'all') {
-                return console.log(data)
+            if (value == 'all') {
+                return renderData(data)
             } else {
-                return console.log(data.filter(item => {
+                return renderData(data.filter(item => {
                     return item.difficulty === value
                 }))
             }
 
         } else {
 
-            if (value === 'all') {
-                return console.log(data.filter(item => {
+            if (value == 'all') {
+                return renderData(data.filter(item => {
                     return item.gender === genderFormValue
                 }))
             } else {
-                return console.log(
-                    data
+                return renderData(data
                     .filter(item => {
                         return item.difficulty === value
                     })
                     .filter(item => {
                         return item.gender === genderFormValue
-                    })
-                )
+                    }))
             }
 
         }

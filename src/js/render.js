@@ -2,6 +2,8 @@ function renderData(data) {
     console.log(data)
     let survivorsSection = document.querySelector(".survivors");
     let killersSection = document.querySelector(".killers");
+    survivorsSection.innerHTML = '';
+    killersSection.innerHTML = '';
     return data.map(item => {
         const link = document.createElement("a")
         link.href = `#details/${item.idName}`;

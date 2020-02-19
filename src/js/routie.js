@@ -191,7 +191,7 @@ const router = {
         routie({
             'home': function () {
                 console.log("home")
-                runApi()
+                runApi();
             },
         });
         routie({

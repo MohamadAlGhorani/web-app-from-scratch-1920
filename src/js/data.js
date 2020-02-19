@@ -12,17 +12,11 @@ function cleanData(data) {
   dataArray = dataArray.filter(item => {
     return item.idName !== "None";
   })
+  renderData(dataArray)
+
   filterDataByDifficulty(dataArray)
   filterDataByGender(dataArray)
-  renderData(dataArray)
-  const forms = document.querySelectorAll("form");
-  forms.forEach(item => {
-    item.addEventListener("change", () => {
-      console.log("changing")
-      // update(dataArray)
-    })
-  })
-  return dataArray;
+
 }
 export {
   cleanData
