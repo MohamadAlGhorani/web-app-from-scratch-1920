@@ -12,36 +12,44 @@
         </header>
         <main>
             <section class="home" data-route="home">
+                <p>Learn more about your favorite chrachters and read thier backstorys</p>
                 <form class="difficulty-form">
                     <fieldset>
-                        <legend>Difficulty</legend>
-                        <label for="easy">Easy</label>
+                        <legend>Filter by difficulty</legend>
+                        
                         <input id="easy" type="radio" value="ECharacterDifficulty::VE_Easy" name="difficulty">
-                        <label for="intermediate">Intermediate</label>
+                        <label for="easy">Easy</label>
+                        
                         <input id="intermediate" type="radio" value="ECharacterDifficulty::VE_Intermediate" name="difficulty">
-                        <label for="hard">Hard</label>
+                        <label for="intermediate">Intermediate</label>
+                        
                         <input id="hard" type="radio" value="ECharacterDifficulty::VE_Hard" name="difficulty">
-                        <label for="allDifficulty">All</label>
+                        <label for="hard">Hard</label>
+                    
                         <input id="allDifficulty" checked type="radio" value="all" name="difficulty">
+                        <label for="allDifficulty">All</label>
                     </fieldset>
                 </form>
                 <form class="gender-form">
                     <fieldset>
-                        <legend>Gender</legend>
-                        <label for="male">Male</label>
+                        <legend>Filter by gender</legend>
+                        
                         <input id="male" type="radio" value="EGender::VE_Male" name="gender">
-                        <label for="female">Female</label>
+                        <label for="male">Male</label>
+                        
                         <input id="female" type="radio" value="EGender::VE_Female" name="gender">
-                        <label for="all">All</label>
+                        <label for="female">Female</label>
+                        
                         <input id="all" checked type="radio" value="all" name="gender">
+                        <label for="all">All</label>
                     </fieldset>
                 </form>
                 <section>
-                    <h2>Survivors</h2>
+                    <h2>Survivors <img class="survivors-icon" src="images/survivors.png" alt=""></h2>
                     <div class="survivors"></div>
                 </section>
                 <section>
-                    <h2>Killers</h2>
+                    <h2>Killers <img class="killers-icon" src="images/killers.png" alt=""></h2>
                     <div class="killers"></div>
                 </section>
             </section>
@@ -49,8 +57,8 @@
             </section>
         </main>
         <footer>
-            <a href="https://www.facebook.com/pg/DBDsyria" target="blank">Facebook</a>
-            <a href="https://www.youtube.com/channel/UChPEA3-R3nzorCxbt0uX_Uw?view_as=subscriber" target="blank">Youtube</a>
+            <a href="https://www.facebook.com/pg/DBDsyria" target="blank"><img src="images/facebook.png" alt=""></a>
+            <a href="https://www.youtube.com/channel/UChPEA3-R3nzorCxbt0uX_Uw?view_as=subscriber" target="blank"><img src="images/youtube.png" alt=""></a>
         </footer>
         <script src="js/index.js"></script>
     </body>

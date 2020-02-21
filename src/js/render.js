@@ -42,7 +42,7 @@ function detailData(data, id) {
         picture.src = `https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/${item.idName}.png`;
         let info = document.createElement("div");
         let storyTitle = document.createElement('h4');
-        storyTitle.innerText = "Back story";
+        storyTitle.innerText = "Backstory";
         let story = document.createElement("p");
         story.innerHTML = item.backStory;
         let biographyTitle = document.createElement("h4");

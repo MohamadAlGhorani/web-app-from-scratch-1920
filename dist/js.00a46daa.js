@@ -8239,7 +8239,7 @@ function detailData(data, id) {
     picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
     var info = document.createElement("div");
     var storyTitle = document.createElement('h4');
-    storyTitle.innerText = "Back story";
+    storyTitle.innerText = "Backstory";
     var story = document.createElement("p");
     story.innerHTML = item.backStory;
     var biographyTitle = document.createElement("h4");
