@@ -137,10 +137,6 @@ form input {
   visibility: hidden;
 }
 
-label {
-  padding: 1em;
-}
-
 form input:checked+label {
   color: orange;
 }
