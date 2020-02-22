@@ -4,16 +4,21 @@
         <title>Dead by Daylight</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Krona+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="js.00a46daa.css"></head>
     <body>
         <header>
-            <h1>Dead by Daylight Musketeers</h1>
             <img src="DBD.54de424d.png" alt="">
+            <h1>Dead by Daylight <span>Musketeers</span></h1>
         </header>
         <main>
             <section class="home" data-route="home">
-                <p>Learn more about your favorite chrachters and read thier backstorys</p>
-                <form class="difficulty-form">
+                <div class="intro-container">
+                    <p class="intro">Learn more about your favorite chrachters and read thier backstorys.</p>
+                    <a href="#form"><img src="arrow.dd9de399.png" alt=""></a>
+                </div>
+                <form id="form" class="difficulty-form">
                     <fieldset>
                         <legend>Filter by difficulty</legend>
                         
@@ -46,19 +51,25 @@
                 </form>
                 <section>
                     <h2>Survivors <img class="survivors-icon" src="survivors.e78f79cb.png" alt=""></h2>
-                    <div class="survivors"></div>
+                    <div class="survivors">
+                        <img class="loading" src="loading.9b7420a7.gif" alt="">
+                    </div>
                 </section>
                 <section>
                     <h2>Killers <img class="killers-icon" src="killers.e1402fb6.png" alt=""></h2>
-                    <div class="killers"></div>
+                    <div class="killers">
+                        <img class="loading" src="loading.9b7420a7.gif" alt="">
+                    </div>
                 </section>
             </section>
             <section class="details" data-route="details">
             </section>
         </main>
         <footer>
-            <a href="https://www.facebook.com/pg/DBDsyria" target="blank"><img src="facebook.1207ba1d.png" alt=""></a>
-            <a href="https://www.youtube.com/channel/UChPEA3-R3nzorCxbt0uX_Uw?view_as=subscriber" target="blank"><img src="youtube.1aabfb67.png" alt=""></a>
+            <div class="social-media-container">
+                <a href="https://www.facebook.com/pg/DBDsyria" target="blank"><img src="facebook.1207ba1d.png" alt=""></a>
+                <a href="https://www.youtube.com/channel/UChPEA3-R3nzorCxbt0uX_Uw?view_as=subscriber" target="blank"><img src="youtube.1aabfb67.png" alt=""></a>
+            </div>
         </footer>
         <script src="js.00a46daa.js"></script>
     </body>

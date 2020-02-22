@@ -208,6 +208,18 @@ const router = {
                 getCharacterInfo(id);
                 updateUI('details');
             },
+            'form': function () {
+                runApi();
+                updateUI('home');
+                (function filtering() {
+                    const forms = document.querySelectorAll("form");
+                    forms.forEach(item => {
+                        item.addEventListener("change", () => {
+                            runApi();
+                        })
+                    })
+                })()
+            },
         });
     }
 };

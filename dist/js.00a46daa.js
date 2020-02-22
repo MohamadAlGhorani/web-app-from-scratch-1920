@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/core-js/modules/_global.js":[function(require,module,exports) {
+},{"./../images/back.png":[["back.177f3c7d.png","images/back.png"],"images/back.png"],"./../images/background.jpeg":[["background.476229d8.jpeg","images/background.jpeg"],"images/background.jpeg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/core-js/modules/_global.js":[function(require,module,exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
@@ -8228,21 +8228,21 @@ function detailData(data, id) {
   var backLink = document.createElement("a");
   backLink.href = "#home";
   var backbutton = document.createElement("button");
-  backbutton.innerText = "back";
+  backbutton.innerText = "Back";
   var dataArray = Object.values(data);
   dataArray = dataArray.filter(function (item) {
     return item.idName == id;
   }).map(function (item) {
-    var name = document.createElement("h3");
+    var name = document.createElement("h2");
     name.innerText = item.displayName;
     var picture = document.createElement("img");
     picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
     var info = document.createElement("div");
-    var storyTitle = document.createElement('h4');
+    var storyTitle = document.createElement('h3');
     storyTitle.innerText = "Backstory";
     var story = document.createElement("p");
     story.innerHTML = item.backStory;
-    var biographyTitle = document.createElement("h4");
+    var biographyTitle = document.createElement("h3");
     biographyTitle.innerText = "Abilities";
     var biography = document.createElement("p");
     biography.innerHTML = item.biography;
@@ -8405,6 +8405,13 @@ function updateUI(route) {
   var activeSection = document.querySelector("[data-route=".concat(route, "]"));
   console.log(activeSection);
   activeSection.classList.add('active');
+  var header = document.querySelector("header");
+
+  if (route == "details") {
+    header.classList.add("details-header");
+  } else {
+    header.classList.remove("details-header");
+  }
 }
 },{}],"js/routie.js":[function(require,module,exports) {
 "use strict";
@@ -8656,6 +8663,19 @@ var router = {
       'details/:id': function detailsId(id) {
         (0, _api.getCharacterInfo)(id);
         (0, _userInterface.updateUI)('details');
+      },
+      'form': function form() {
+        (0, _api.runApi)();
+        (0, _userInterface.updateUI)('home');
+
+        (function filtering() {
+          var forms = document.querySelectorAll("form");
+          forms.forEach(function (item) {
+            item.addEventListener("change", function () {
+              (0, _api.runApi)();
+            });
+          });
+        })();
       }
     });
   }

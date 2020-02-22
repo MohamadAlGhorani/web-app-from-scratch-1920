@@ -30,22 +30,22 @@ function detailData(data, id) {
     let backLink = document.createElement("a");
     backLink.href = "#home";
     let backbutton = document.createElement("button");
-    backbutton.innerText = "back"
+    backbutton.innerText = "Back"
     let dataArray = Object.values(data);
 
     dataArray = dataArray.filter(item => {
         return item.idName == id;
     }).map(item => {
-        let name = document.createElement("h3");
+        let name = document.createElement("h2");
         name.innerText = item.displayName;
         let picture = document.createElement("img");
         picture.src = `https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/${item.idName}.png`;
         let info = document.createElement("div");
-        let storyTitle = document.createElement('h4');
+        let storyTitle = document.createElement('h3');
         storyTitle.innerText = "Backstory";
         let story = document.createElement("p");
         story.innerHTML = item.backStory;
-        let biographyTitle = document.createElement("h4");
+        let biographyTitle = document.createElement("h3");
         biographyTitle.innerText = "Abilities";
         let biography = document.createElement("p");
         biography.innerHTML = item.biography;
