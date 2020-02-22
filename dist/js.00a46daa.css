@@ -137,10 +137,25 @@ form input {
   visibility: hidden;
 }
 
-form input:checked+label {
-  text-decoration: underline;
+label {
+  padding: 1em;
 }
 
+form input:checked+label {
+  color: orange;
+}
+
+fieldset {
+  border: 1px solid orange;
+}
+
+form {
+  margin-top: 1em;
+}
+
+legend {
+  font-size: 18px;
+}
 
 header img {
   height: 100px;
