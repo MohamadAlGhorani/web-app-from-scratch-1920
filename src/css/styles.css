@@ -294,6 +294,33 @@ footer img {
     font-size: 20px;
     width: 60%;
   }
+
+  .survivors article,
+  .killers article {
+    width: 150px;
+    margin: 5px;
+  }
+
+  .survivors article h3,
+  .killers article h3 {
+    font-size: 12px;
+  }
+
+  h2 img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .details h2 {
+    font-size: 28px;
+    margin-bottom: 1em;
+  }
+
+  .details img {
+    font-size: 28px;
+    width: 300px;
+    max-width: 400px;
+  }
 }
 
 @keyframes floating {
