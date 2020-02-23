@@ -79,7 +79,7 @@ header {
 .details button {
   background-color: transparent;
   border: none;
-  background-image: url(/back.177f3c7d.png);
+  background-image: url(back.177f3c7d.png);
   background-repeat: no-repeat;
   background-position: 40px -5px;
   background-size: 60px;
@@ -192,7 +192,7 @@ header img:hover {
 }
 
 .intro-container {
-  background-image: url(/background.476229d8.jpeg);
+  background-image: url(background.476229d8.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
