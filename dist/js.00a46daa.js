@@ -8350,7 +8350,7 @@ var _filter = require("./filter.js");
 function cleanData(data) {
   var dataArray = Object.values(data);
   dataArray = dataArray.filter(function (item) {
-    return item.idName !== "None";
+    return item.idName !== "None"; // remove one item of the array
   });
   (0, _filter.filterDataByDifficulty)(dataArray);
   (0, _filter.filterDataByGender)(dataArray);
