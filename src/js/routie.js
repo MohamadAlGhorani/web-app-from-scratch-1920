@@ -197,9 +197,16 @@ const router = {
                 updateUI('home');
                 (function filtering() {
                     const forms = document.querySelectorAll("form");
+                    const survivorsIcon = document.querySelector(".survivors-icon");
+                    const killerIcon = document.querySelector(".killers-icon");
                     forms.forEach(item => {
                         item.addEventListener("change", () => {
                             runApi();
+                            survivorsIcon.classList.toggle("spin");
+                            killerIcon.classList.add("float");
+                            setTimeout(function () {
+                                killerIcon.classList.remove("float");
+                            }, 3000)
                         })
                     })
                 })()

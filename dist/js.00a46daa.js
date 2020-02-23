@@ -8653,9 +8653,16 @@ var router = {
 
         (function filtering() {
           var forms = document.querySelectorAll("form");
+          var survivorsIcon = document.querySelector(".survivors-icon");
+          var killerIcon = document.querySelector(".killers-icon");
           forms.forEach(function (item) {
             item.addEventListener("change", function () {
               (0, _api.runApi)();
+              survivorsIcon.classList.toggle("spin");
+              killerIcon.classList.add("float");
+              setTimeout(function () {
+                killerIcon.classList.remove("float");
+              }, 3000);
             });
           });
         })();

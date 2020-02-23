@@ -17,6 +17,16 @@ h2 img {
   transform: rotate(360deg);
 }
 
+.float {
+  animation-name: floating;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+}
+
+.spin {
+  transform: rotate(360deg);
+}
+
 .killers-icon:hover {
   animation-name: floating;
   animation-duration: 1s;
