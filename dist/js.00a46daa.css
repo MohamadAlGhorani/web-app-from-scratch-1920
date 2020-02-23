@@ -79,7 +79,7 @@ header {
 .details button {
   background-color: transparent;
   border: none;
-  background-image: url(back.177f3c7d.png);
+  background-image: url(/back.177f3c7d.png);
   background-repeat: no-repeat;
   background-position: 40px -5px;
   background-size: 60px;
@@ -192,12 +192,13 @@ header img:hover {
 }
 
 .intro-container {
-  background-image: url(background.476229d8.jpeg);
+  background-image: url(/background.476229d8.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 91vh;
   margin-bottom: 50px;
+  transition: all 1s;
 }
 
 .intro-container img {
@@ -310,7 +311,6 @@ footer img {
   .intro {
     font-size: 20px;
     width: 60%;
-    padding-top: 400px;
   }
 
   .survivors article,
