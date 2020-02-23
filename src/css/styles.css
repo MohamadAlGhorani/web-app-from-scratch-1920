@@ -189,6 +189,7 @@ header img:hover {
   text-align: center;
   margin: 0 auto;
   padding-top: 40vh;
+  transition: all 1s;
 }
 
 .intro-container {
