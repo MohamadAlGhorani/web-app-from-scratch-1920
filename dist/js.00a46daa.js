@@ -8197,11 +8197,14 @@ exports.renderData = renderData;
 exports.detailData = detailData;
 
 function renderData(data) {
-  //console.log(data)
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
-  survivorsSection.innerHTML = '';
-  killersSection.innerHTML = '';
+  Array.from(survivorsSection.children).map(function (item) {
+    item.remove();
+  });
+  Array.from(killersSection.children).map(function (item) {
+    item.remove();
+  });
   return data.map(function (item) {
     var link = document.createElement("a");
     link.href = "#details/".concat(item.idName);
@@ -8224,26 +8227,28 @@ function renderData(data) {
 
 function detailData(data, id) {
   var detailpage = document.querySelector(".details");
-  detailpage.innerHTML = '';
+  Array.from(detailpage.children).map(function (item) {
+    item.remove();
+  });
   var backLink = document.createElement("a");
   backLink.href = "#home";
   var backbutton = document.createElement("button");
-  backbutton.innerText = "Back";
+  backbutton.textContent = "Back";
   var dataArray = Object.values(data);
   dataArray = dataArray.filter(function (item) {
     return item.idName == id;
   }).map(function (item) {
     var name = document.createElement("h2");
-    name.innerText = item.displayName;
+    name.textContent = item.displayName;
     var picture = document.createElement("img");
     picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
     var info = document.createElement("div");
     var storyTitle = document.createElement('h3');
-    storyTitle.innerText = "Backstory";
+    storyTitle.textContent = "Backstory";
     var story = document.createElement("p");
     story.innerHTML = item.backStory;
     var biographyTitle = document.createElement("h3");
-    biographyTitle.innerText = "Abilities";
+    biographyTitle.textContent = "Abilities";
     var biography = document.createElement("p");
     biography.innerHTML = item.biography;
     backLink.appendChild(backbutton);
@@ -8403,7 +8408,6 @@ function updateUI(route) {
     section.classList.remove('active');
   });
   var activeSection = document.querySelector("[data-route=".concat(route, "]"));
-  console.log(activeSection);
   activeSection.classList.add('active');
   var header = document.querySelector("header");
 

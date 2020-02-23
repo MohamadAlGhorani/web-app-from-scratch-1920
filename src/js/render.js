@@ -1,9 +1,14 @@
 function renderData(data) {
-    //console.log(data)
     let survivorsSection = document.querySelector(".survivors");
     let killersSection = document.querySelector(".killers");
-    survivorsSection.innerHTML = '';
-    killersSection.innerHTML = '';
+
+    Array.from(survivorsSection.children).map(item => {
+        item.remove()
+    })
+    Array.from(killersSection.children).map(item => {
+        item.remove()
+    })
+
     return data.map(item => {
         const link = document.createElement("a");
         link.href = `#details/${item.idName}`;
@@ -26,27 +31,31 @@ function renderData(data) {
 
 function detailData(data, id) {
     const detailpage = document.querySelector(".details");
-    detailpage.innerHTML = '';
+    Array.from(detailpage.children).map(item => {
+        item.remove()
+    })
+
     let backLink = document.createElement("a");
     backLink.href = "#home";
     let backbutton = document.createElement("button");
-    backbutton.innerText = "Back"
+    backbutton.textContent = "Back"
+
     let dataArray = Object.values(data);
 
     dataArray = dataArray.filter(item => {
         return item.idName == id;
     }).map(item => {
         let name = document.createElement("h2");
-        name.innerText = item.displayName;
+        name.textContent = item.displayName;
         let picture = document.createElement("img");
         picture.src = `https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/${item.idName}.png`;
         let info = document.createElement("div");
         let storyTitle = document.createElement('h3');
-        storyTitle.innerText = "Backstory";
+        storyTitle.textContent = "Backstory";
         let story = document.createElement("p");
         story.innerHTML = item.backStory;
         let biographyTitle = document.createElement("h3");
-        biographyTitle.innerText = "Abilities";
+        biographyTitle.textContent = "Abilities";
         let biography = document.createElement("p");
         biography.innerHTML = item.biography;
         backLink.appendChild(backbutton);
