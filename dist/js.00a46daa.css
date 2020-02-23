@@ -188,7 +188,7 @@ header img:hover {
   width: 50%;
   text-align: center;
   margin: 0 auto;
-  padding-top: 250px;
+  padding-top: 350px;
 }
 
 .intro-container {
@@ -196,7 +196,7 @@ header img:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 560px;
+  height: 91vh;
   margin-bottom: 50px;
 }
 
@@ -268,6 +268,7 @@ footer {
   left: 0;
   width: 100%;
   padding: .5rem;
+  height: 5vh;
   z-index: 9999;
   display: flex;
 }
@@ -309,6 +310,7 @@ footer img {
   .intro {
     font-size: 20px;
     width: 60%;
+    padding-top: 400px;
   }
 
   .survivors article,
