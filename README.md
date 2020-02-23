@@ -19,11 +19,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Actor diagram
 
-<img width="588" alt="Screenshot 2020-02-13 at 18 24 18" src="https://user-images.githubusercontent.com/45425087/74461445-d428fd00-4e8e-11ea-8d05-dc1aa20c4431.png">
+<img width="583" alt="Screenshot 2020-02-23 at 19 53 42" src="https://user-images.githubusercontent.com/45425087/75117947-4612fa80-5676-11ea-9176-bee0f861ac3f.png">
 
-## Active diagram
+## interaction diagram
 
-<img width="611" alt="Screenshot 2020-02-13 at 18 24 09" src="https://user-images.githubusercontent.com/45425087/74461462-dab77480-4e8e-11ea-9d63-657dc7feca33.png">
+<img width="594" alt="Screenshot 2020-02-23 at 19 53 32" src="https://user-images.githubusercontent.com/45425087/75117951-49a68180-5676-11ea-8e41-6877be979d87.png">
 
 
 ## Features
