@@ -45,6 +45,7 @@ a {
 
 body {
   background-color: hsl(180, 2%, 12%);
+  position: relative;
 }
 
 .survivors,
