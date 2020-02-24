@@ -6,7 +6,7 @@ screenshot here
 
 ## Description
 
-Its a web app for all characters of Dead by Daylight game. with this app can you learn about each character and read their back story.
+Its a web app for all characters of Dead by Daylight game. with this app can you learn about each character and read their backstory.
 
 ## Installiation
 
@@ -31,6 +31,36 @@ These instructions will get you a copy of the project up and running on your loc
 ## [Data](https://github.com/Nexure/DBD-API)
 
 I used the data from the game and i used the endpoint characters.
+https://dbd-stats.info/api/eindpoint
+
+### eindpoints
+* "maps": "GET /api/maps(?branch=live)",
+* "perks": "GET /api/perks(?branch=live)",
+* "offerings": "GET /api/offerings(?branch=live)",
+* "characters": "GET /api/characters(?branch=live)",
+* "tunables": "GET /api/tunables(?branch=live\u0026killer=)",
+* "emblemtunnables": "GET /api/emblemtunables(?branch=live)",
+* "gameconfigs": "GET /api/gameconfigs(?branch=live)",
+* "ranksthresholds": "GET /api/ranksthresholds(?branch=live)",
+* "customizationitems": "GET /api/customizationitems(?branch=live)",
+* "itemaddons": "GET /api/itemaddons(?branch=live)",
+* "items": "GET /api/items(?branch=live)",
+* "stats": "GET /api/stats/:steam_64: (Profile needs to be public)",
+* "shrine": "GET /api/shrineofsecrets(?pretty=true\u0026branch=live)",
+* "store": "GET /api/storeoutfits(?branch=live)",
+* "config": "GET /api/config(?branch=live)",
+* "catalog": "GET /api/catalog(?branch=live)",
+* "news": "GET /api/news(?branch=live)",
+* "featured": "GET /api/featured(?branch=live)",
+* "schedule": "GET /api/schedule(?branch=live)",
+* "bloodpointEvents": "GET /api/bpevents(?branch=live)",
+* "specialevents": "GET /api/specialevents(?branch=live)",
+* "archive": "GET /api/archive(?branch=ptb\u0026tome=Tome01)",
+* "achiveRewardData": "GET /api/archiverewarddata(?branch=live)"
+
+### limit
+there is no limit 
+
 
 ## Licens is [MIT](https://github.com/MohamadAlGhorani/web-app-from-scratch-1920/blob/master/LICENSE)
 
