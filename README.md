@@ -2,7 +2,7 @@
 
 <img width="1264" alt="Screenshot 2020-02-24 at 12 55 48" src="https://user-images.githubusercontent.com/45425087/75150659-2c6cc400-5705-11ea-9f1d-aea3cb14ab73.png">
 
-## [Live demo](https://mohamadalghorani.github.io/web-app-from-scratch-1920/dist/index.html)
+## [Live demo](https://mohamadalghorani.github.io/web-app-from-scratch-1920/dist/index.html/#home)
 
 ## Description
 
@@ -64,6 +64,9 @@ https://dbd-stats.info/api/eindpoint
 
 ### Limit
 there is no limit 
+
+### Data type 
+data type is json 
 
 
 ## Licens is [MIT](https://github.com/MohamadAlGhorani/web-app-from-scratch-1920/blob/master/LICENSE)
