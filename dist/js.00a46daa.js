@@ -8197,7 +8197,6 @@ exports.renderData = renderData;
 exports.detailData = detailData;
 
 function renderData(data) {
-  // console.log(data)
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
   Array.from(survivorsSection.children).map(function (item) {
