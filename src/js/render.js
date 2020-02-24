@@ -1,5 +1,5 @@
 function renderData(data) {
-    console.log(data)
+    // console.log(data)
     let survivorsSection = document.querySelector(".survivors");
     let killersSection = document.querySelector(".killers");
 

@@ -8197,7 +8197,7 @@ exports.renderData = renderData;
 exports.detailData = detailData;
 
 function renderData(data) {
-  console.log(data);
+  // console.log(data)
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
   Array.from(survivorsSection.children).map(function (item) {
@@ -8675,19 +8675,6 @@ var router = {
       'details/:id': function detailsId(id) {
         (0, _api.getCharacterInfo)(id);
         (0, _userInterface.updateUI)('details');
-      },
-      'form': function form() {
-        (0, _api.runApi)();
-        (0, _userInterface.updateUI)('home');
-
-        (function filtering() {
-          var forms = document.querySelectorAll("form");
-          forms.forEach(function (item) {
-            item.addEventListener("change", function () {
-              (0, _api.runApi)();
-            });
-          });
-        })();
       }
     });
   }
@@ -8704,12 +8691,14 @@ var _routie = require("./routie");
 
 _routie.router.init();
 
-if (!window.location.href.includes('#')) window.location = '/#home';
-document.querySelector('.arrow').addEventListener('click', function () {
-  document.querySelector('#form').scrollIntoView({
-    behavior: 'smooth'
+(function () {
+  if (!window.location.href.includes('#')) window.location = '/#home';
+  document.querySelector('.arrow').addEventListener('click', function () {
+    document.querySelector('#form').scrollIntoView({
+      behavior: 'smooth'
+    });
   });
-});
+})();
 },{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./routie":"js/routie.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

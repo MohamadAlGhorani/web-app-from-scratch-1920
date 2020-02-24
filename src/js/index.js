@@ -5,10 +5,13 @@ import {
 } from "./routie"
 
 router.init();
-if (!window.location.href.includes('#')) window.location = '/#home'
 
-document.querySelector('.arrow').addEventListener('click', () => {
-    document.querySelector('#form').scrollIntoView({
-        behavior: 'smooth'
+(function () {
+    if (!window.location.href.includes('#')) window.location = '/#home'
+
+    document.querySelector('.arrow').addEventListener('click', () => {
+        document.querySelector('#form').scrollIntoView({
+            behavior: 'smooth'
+        });
     });
-});
+})()
