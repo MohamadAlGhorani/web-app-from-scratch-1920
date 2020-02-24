@@ -8689,7 +8689,7 @@ require("babel-polyfill");
 
 var _routie = require("./routie");
 
-_routie.router.init(); // fix for teh routie problemen.
+_routie.router.init(); // fix for the routie problemen.
 
 
 (function () {
