@@ -1,4 +1,4 @@
-# Dead by daylight
+# Dead by Daylight Musketeers
 
 <img width="1264" alt="Screenshot 2020-02-24 at 12 55 48" src="https://user-images.githubusercontent.com/45425087/75150659-2c6cc400-5705-11ea-9f1d-aea3cb14ab73.png">
 
