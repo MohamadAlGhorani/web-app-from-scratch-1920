@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## interaction diagram
 
-<img width="702" alt="Screenshot 2020-02-24 at 16 01 58" src="https://user-images.githubusercontent.com/45425087/75163461-93977200-571f-11ea-8f57-7279ead58a6f.png">
+<img width="604" alt="Screenshot 2020-02-24 at 16 07 18" src="https://user-images.githubusercontent.com/45425087/75163589-cb061e80-571f-11ea-829b-1fedb2418d9a.png">
 
 
 ## Features
