@@ -62,11 +62,11 @@ https://dbd-stats.info/api/eindpoint
 * "archive": "GET /api/archive(?branch=ptb\u0026tome=Tome01)",
 * "achiveRewardData": "GET /api/archiverewarddata(?branch=live)"
 
-### Limit
-there is no limit 
+### Api call limit
+there is no call limit 
 
 ### Data type 
-data type is json 
+Data type is json 
 
 
 ## Licens is [MIT](https://github.com/MohamadAlGhorani/web-app-from-scratch-1920/blob/master/LICENSE)
