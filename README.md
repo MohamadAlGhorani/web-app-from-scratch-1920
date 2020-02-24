@@ -35,9 +35,9 @@ These instructions will get you a copy of the project up and running on your loc
 ## [Data](https://github.com/Nexure/DBD-API)
 
 I used the data from the game and i used the endpoint characters.
-https://dbd-stats.info/api/eindpoint
+https://dbd-stats.info/api/endpoint
 
-### Eindpoints
+### Endpoints
 * "maps": "GET /api/maps(?branch=live)",
 * "perks": "GET /api/perks(?branch=live)",
 * "offerings": "GET /api/offerings(?branch=live)",
