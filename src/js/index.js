@@ -5,3 +5,4 @@ import {
 } from "./routie"
 
 router.init();
+window.location = '/#home'

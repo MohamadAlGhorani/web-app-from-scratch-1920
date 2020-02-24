@@ -8197,6 +8197,7 @@ exports.renderData = renderData;
 exports.detailData = detailData;
 
 function renderData(data) {
+  console.log(data);
   var survivorsSection = document.querySelector(".survivors");
   var killersSection = document.querySelector(".killers");
   Array.from(survivorsSection.children).map(function (item) {
@@ -8702,6 +8703,8 @@ require("babel-polyfill");
 var _routie = require("./routie");
 
 _routie.router.init();
+
+window.location = '/#home';
 },{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./routie":"js/routie.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
