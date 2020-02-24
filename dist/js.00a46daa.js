@@ -8689,7 +8689,8 @@ require("babel-polyfill");
 
 var _routie = require("./routie");
 
-_routie.router.init();
+_routie.router.init(); // fix for teh routie problemen.
+
 
 (function () {
   if (!window.location.href.includes('#')) window.location = '/#home';

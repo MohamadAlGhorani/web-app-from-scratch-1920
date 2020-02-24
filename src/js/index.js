@@ -6,6 +6,8 @@ import {
 
 router.init();
 
+
+// fix for teh routie problemen.
 (function () {
     if (!window.location.href.includes('#')) window.location = '/#home'
 
