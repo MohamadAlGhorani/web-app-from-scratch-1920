@@ -152,6 +152,10 @@ form input {
   visibility: hidden;
 }
 
+form label {
+  cursor: pointer;
+}
+
 form input:checked+label {
   color: orange;
 }
@@ -179,6 +183,10 @@ header img {
 
 header img:hover {
   transform: rotate(360deg);
+}
+
+.arrow {
+  cursor: pointer;
 }
 
 .intro {

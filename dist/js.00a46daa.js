@@ -8704,7 +8704,12 @@ var _routie = require("./routie");
 
 _routie.router.init();
 
-window.location = '/#home';
+if (!window.location.href.includes('#')) window.location = '/#home';
+document.querySelector('.arrow').addEventListener('click', function () {
+  document.querySelector('#form').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
 },{"../css/styles.css":"css/styles.css","babel-polyfill":"../node_modules/babel-polyfill/lib/index.js","./routie":"js/routie.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
