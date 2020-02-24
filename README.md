@@ -37,7 +37,7 @@ These instructions will get you a copy of the project up and running on your loc
 I used the data from the game and i used the endpoint characters.
 https://dbd-stats.info/api/eindpoint
 
-### eindpoints
+### Eindpoints
 * "maps": "GET /api/maps(?branch=live)",
 * "perks": "GET /api/perks(?branch=live)",
 * "offerings": "GET /api/offerings(?branch=live)",
@@ -62,7 +62,7 @@ https://dbd-stats.info/api/eindpoint
 * "archive": "GET /api/archive(?branch=ptb\u0026tome=Tome01)",
 * "achiveRewardData": "GET /api/archiverewarddata(?branch=live)"
 
-### limit
+### Limit
 there is no limit 
 
 
