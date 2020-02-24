@@ -5,6 +5,12 @@ import {
 import {
     updateUI
 } from "./userInterface"
+import {
+    cleanData
+} from "./data";
+import {
+    detailData
+} from "./render";
 
 const router = {
     init: function () {
@@ -201,7 +207,11 @@ const router = {
                     const killerIcon = document.querySelector(".killers-icon");
                     forms.forEach(item => {
                         item.addEventListener("change", () => {
-                            runApi();
+                            if (localStorage.getItem("data")) {
+                                cleanData(JSON.parse(localStorage.getItem("data")))
+                            } else {
+                                runApi();
+                            }
                             survivorsIcon.classList.toggle("spin");
                             killerIcon.classList.add("float");
                             setTimeout(function () {
@@ -212,7 +222,11 @@ const router = {
                 })()
             },
             'details/:id': function (id) {
-                getCharacterInfo(id);
+                if (localStorage.getItem("data")) {
+                    detailData(JSON.parse(localStorage.getItem("data")), id)
+                } else {
+                    getCharacterInfo(id);
+                }
                 updateUI('details');
             },
         });

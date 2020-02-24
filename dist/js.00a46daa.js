@@ -8353,10 +8353,13 @@ var _render = require("./render.js");
 var _filter = require("./filter.js");
 
 function cleanData(data) {
-  var dataArray = Object.values(data);
+  var dataArray = Object.values(data); // use spread operator?
+
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None"; // remove one item of the array
   });
+  var dataForLocalStorage = JSON.stringify(dataArray);
+  localStorage.setItem("data", dataForLocalStorage);
   (0, _filter.filterDataByDifficulty)(dataArray);
   (0, _filter.filterDataByGender)(dataArray);
 }
@@ -8428,6 +8431,10 @@ exports.router = void 0;
 var _api = require("./api");
 
 var _userInterface = require("./userInterface");
+
+var _data = require("./data");
+
+var _render = require("./render");
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -8661,7 +8668,12 @@ var router = {
           var killerIcon = document.querySelector(".killers-icon");
           forms.forEach(function (item) {
             item.addEventListener("change", function () {
-              (0, _api.runApi)();
+              if (localStorage.getItem("data")) {
+                (0, _data.cleanData)(JSON.parse(localStorage.getItem("data")));
+              } else {
+                (0, _api.runApi)();
+              }
+
               survivorsIcon.classList.toggle("spin");
               killerIcon.classList.add("float");
               setTimeout(function () {
@@ -8672,14 +8684,19 @@ var router = {
         })();
       },
       'details/:id': function detailsId(id) {
-        (0, _api.getCharacterInfo)(id);
+        if (localStorage.getItem("data")) {
+          (0, _render.detailData)(JSON.parse(localStorage.getItem("data")), id);
+        } else {
+          (0, _api.getCharacterInfo)(id);
+        }
+
         (0, _userInterface.updateUI)('details');
       }
     });
   }
 };
 exports.router = router;
-},{"./api":"js/api.js","./userInterface":"js/userInterface.js"}],"js/index.js":[function(require,module,exports) {
+},{"./api":"js/api.js","./userInterface":"js/userInterface.js","./data":"js/data.js","./render":"js/render.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../css/styles.css");
