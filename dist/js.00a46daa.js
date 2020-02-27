@@ -8358,8 +8358,8 @@ function cleanData(data) {
   dataArray = dataArray.filter(function (item) {
     return item.idName !== "None"; // remove one item of the array
   });
-  var dataForsessionStorage = JSON.stringify(dataArray);
-  sessionStorage.setItem("data", dataForsessionStorage);
+  var dataForlocalStorage = JSON.stringify(dataArray);
+  localStorage.setItem("data", dataForlocalStorage);
   (0, _filter.filterDataByDifficulty)(dataArray);
   (0, _filter.filterDataByGender)(dataArray);
 }
@@ -8668,8 +8668,8 @@ var router = {
           var killerIcon = document.querySelector(".killers-icon");
           forms.forEach(function (item) {
             item.addEventListener("change", function () {
-              if (sessionStorage.getItem("data")) {
-                (0, _data.cleanData)(JSON.parse(sessionStorage.getItem("data")));
+              if (localStorage.getItem("data")) {
+                (0, _data.cleanData)(JSON.parse(localStorage.getItem("data")));
               } else {
                 (0, _api.runApi)();
               }
@@ -8684,8 +8684,8 @@ var router = {
         })();
       },
       'details/:id': function detailsId(id) {
-        if (sessionStorage.getItem("data")) {
-          (0, _render.detailData)(JSON.parse(sessionStorage.getItem("data")), id);
+        if (localStorage.getItem("data")) {
+          (0, _render.detailData)(JSON.parse(localStorage.getItem("data")), id);
         } else {
           (0, _api.getCharacterInfo)(id);
         }
@@ -8744,7 +8744,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50485" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51351" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

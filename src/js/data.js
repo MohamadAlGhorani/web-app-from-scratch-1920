@@ -12,8 +12,8 @@ function cleanData(data) {
   dataArray = dataArray.filter(item => {
     return item.idName !== "None"; // remove one item of the array
   });
-  const dataForsessionStorage = JSON.stringify(dataArray)
-  sessionStorage.setItem("data", dataForsessionStorage)
+  const dataForlocalStorage = JSON.stringify(dataArray)
+  localStorage.setItem("data", dataForlocalStorage)
 
   filterDataByDifficulty(dataArray);
   filterDataByGender(dataArray);
