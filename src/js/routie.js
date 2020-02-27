@@ -207,8 +207,8 @@ const router = {
                     const killerIcon = document.querySelector(".killers-icon");
                     forms.forEach(item => {
                         item.addEventListener("change", () => {
-                            if (localStorage.getItem("data")) {
-                                cleanData(JSON.parse(localStorage.getItem("data")))
+                            if (sessionStorage.getItem("data")) {
+                                cleanData(JSON.parse(sessionStorage.getItem("data")))
                             } else {
                                 runApi();
                             }
@@ -222,8 +222,8 @@ const router = {
                 })()
             },
             'details/:id': function (id) {
-                if (localStorage.getItem("data")) {
-                    detailData(JSON.parse(localStorage.getItem("data")), id)
+                if (sessionStorage.getItem("data")) {
+                    detailData(JSON.parse(sessionStorage.getItem("data")), id)
                 } else {
                     getCharacterInfo(id);
                 }
