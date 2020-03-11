@@ -8212,7 +8212,7 @@ function renderData(data) {
     var name = document.createElement("h3");
     name.innerText = item.displayName;
     var picture = document.createElement("img");
-    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
+    picture.src = "https://dbd-stats.info/data/Public/".concat(item.iconPath);
     article.appendChild(name);
     article.appendChild(picture);
     link.appendChild(article);
@@ -8241,9 +8241,9 @@ function detailData(data, id) {
     var name = document.createElement("h2");
     name.textContent = item.displayName;
     var picture = document.createElement("img");
-    picture.src = "https://raw.githubusercontent.com/MohamadAlGhorani/images/master/images/".concat(item.idName, ".png");
+    picture.src = "https://dbd-stats.info/data/Public/".concat(item.iconPath);
     var info = document.createElement("div");
-    var storyTitle = document.createElement('h3');
+    var storyTitle = document.createElement("h3");
     storyTitle.textContent = "Backstory";
     var story = document.createElement("p");
     story.innerHTML = item.backStory;
@@ -8744,7 +8744,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51351" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49792" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
